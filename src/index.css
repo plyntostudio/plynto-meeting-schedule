@@ -1,0 +1,67 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-ink text-white font-body antialiased;
+}
+
+::selection {
+  @apply bg-plynto-500/30 text-white;
+}
+
+/* Visible keyboard focus everywhere */
+:focus-visible {
+  outline: 2px solid #22c55e;
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Signature motif: the diagonal cut lifted from the Plynto "P" mark.
+   Applied to cards, buttons and section dividers as a recurring notch. */
+.notch-corner {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 28px 100%, 0 calc(100% - 28px));
+}
+
+.notch-corner-sm {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 14px 100%, 0 calc(100% - 14px));
+}
+
+.eyebrow {
+  @apply font-mono text-xs uppercase tracking-[0.25em] text-plynto-500;
+}
+
+.divider-cut {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #262626 15%, #262626 85%, transparent);
+}
+
+/* Custom scrollbar for a slightly more premium feel */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #0a0a0a;
+}
+::-webkit-scrollbar-thumb {
+  background: #262626;
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #22c55e;
+}
